@@ -1,0 +1,22 @@
+!!!5
+%html
+  %head
+    %title= name
+
+    :css
+      table {
+        border-spacing: 0px;
+      }
+
+      td {
+        width: #{size}px;
+        height: #{size}px;
+        padding: 0px;
+      }
+
+  %body
+    %table
+      - (image.rows/size).times do |row|
+        %tr
+          - (image.columns/size).times do |col|
+            %td{:bgcolor => "##{image.pixel_color(col*size, row*size).to_hex}"}
